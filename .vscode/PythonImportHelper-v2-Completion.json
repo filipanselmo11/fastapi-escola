@@ -51,11 +51,43 @@
         "documentation": {}
     },
     {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -116,7 +148,23 @@
         "documentation": {}
     },
     {
-        "label": "Numeric",
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -164,6 +212,14 @@
         "documentation": {}
     },
     {
+        "label": "Base",
+        "importPath": "shared.database",
+        "description": "shared.database",
+        "isExtraImport": true,
+        "detail": "shared.database",
+        "documentation": {}
+    },
+    {
         "label": "SessionLocal",
         "importPath": "shared.database",
         "description": "shared.database",
@@ -185,6 +241,38 @@
         "description": "escola.models.aluno",
         "isExtraImport": true,
         "detail": "escola.models.aluno",
+        "documentation": {}
+    },
+    {
+        "label": "Turma",
+        "importPath": "escola.models.turma",
+        "description": "escola.models.turma",
+        "isExtraImport": true,
+        "detail": "escola.models.turma",
+        "documentation": {}
+    },
+    {
+        "label": "Turma",
+        "importPath": "escola.models.turma",
+        "description": "escola.models.turma",
+        "isExtraImport": true,
+        "detail": "escola.models.turma",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
         "documentation": {}
     },
     {
@@ -228,6 +316,14 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -260,6 +356,22 @@
         "documentation": {}
     },
     {
+        "label": "get_db",
+        "importPath": "shared.dependencies",
+        "description": "shared.dependencies",
+        "isExtraImport": true,
+        "detail": "shared.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "NotFound",
+        "importPath": "shared.exceptions",
+        "description": "shared.exceptions",
+        "isExtraImport": true,
+        "detail": "shared.exceptions",
+        "documentation": {}
+    },
+    {
         "label": "NotFound",
         "importPath": "shared.exceptions",
         "description": "shared.exceptions",
@@ -281,6 +393,30 @@
         "description": "shared.exceptions",
         "isExtraImport": true,
         "detail": "shared.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "TurmaRequest",
+        "importPath": "escola.schemas.turma_schema",
+        "description": "escola.schemas.turma_schema",
+        "isExtraImport": true,
+        "detail": "escola.schemas.turma_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TurmaResponse",
+        "importPath": "escola.schemas.turma_schema",
+        "description": "escola.schemas.turma_schema",
+        "isExtraImport": true,
+        "detail": "escola.schemas.turma_schema",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -407,6 +543,24 @@
     {
         "label": "upgrade",
         "kind": 2,
+        "importPath": "alembic.versions.174df0c206d0_criar_tabela_turmas",
+        "description": "alembic.versions.174df0c206d0_criar_tabela_turmas",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('turmas',\n    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),\n    sa.Column('serie', sa.String(length=30), nullable=True),\n    sa.Column('codigo', sa.String(length=30), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )\n    # ### end Alembic commands ###\ndef downgrade() -> None:",
+        "detail": "alembic.versions.174df0c206d0_criar_tabela_turmas",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.174df0c206d0_criar_tabela_turmas",
+        "description": "alembic.versions.174df0c206d0_criar_tabela_turmas",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.drop_table('turmas')\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.174df0c206d0_criar_tabela_turmas",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
         "importPath": "alembic.versions.6f63cb369267_criar_tabela_alunos",
         "description": "alembic.versions.6f63cb369267_criar_tabela_alunos",
         "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('alunos',\n    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),\n    sa.Column('nome', sa.String(length=30), nullable=True),\n    sa.Column('cpf', sa.String(length=50), nullable=True),\n    sa.Column('rg', sa.String(length=50), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )\n    # ### end Alembic commands ###",
@@ -468,6 +622,15 @@
         "documentation": {}
     },
     {
+        "label": "Turma",
+        "kind": 6,
+        "importPath": "escola.models.turma",
+        "description": "escola.models.turma",
+        "peekOfCode": "class Turma(Base):\n    __tablename__ = \"turmas\"\n    id = Column(Integer, primary_key=True, autoincrement=True)\n    serie = Column(String(30))\n    codigo = Column(String(30))",
+        "detail": "escola.models.turma",
+        "documentation": {}
+    },
+    {
         "label": "buscar_aluno_por_id",
         "kind": 2,
         "importPath": "escola.routers.aluno_router",
@@ -486,6 +649,24 @@
         "documentation": {}
     },
     {
+        "label": "buscar_turmar_por_id",
+        "kind": 2,
+        "importPath": "escola.routers.turma_router",
+        "description": "escola.routers.turma_router",
+        "peekOfCode": "def buscar_turmar_por_id(id:int, db:Session) -> Turma:\n    turma = db.query(Turma).get(id)\n    if turma is None:\n        raise NotFound(\"Turma não encotrada\")\n    return turma",
+        "detail": "escola.routers.turma_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "escola.routers.turma_router",
+        "description": "escola.routers.turma_router",
+        "peekOfCode": "router = APIRouter(prefix=\"/escola\")\n@router.get(\"/\", response_model=List[TurmaResponse], status_code=200)\nasync def get_turmas(db: Session=Depends(get_db)) -> List[TurmaResponse]:\n    return db.query(Turma).all()\n@router.get(\"/{id_turma}\", response_model=TurmaResponse, status_code=200)\nasync def get_turma(id_turma:int, db:Session=Depends(get_db)) -> TurmaResponse:\n    turma = buscar_turmar_por_id(id_turma, db)\n    return turma\n@router.post(\"\", response_model=TurmaResponse, status_code=201)\nasync def criar_turma(turma_request:TurmaRequest, db:Session=Depends(get_db)) -> TurmaResponse:",
+        "detail": "escola.routers.turma_router",
+        "documentation": {}
+    },
+    {
         "label": "AlunoResponse",
         "kind": 6,
         "importPath": "escola.schemas.aluno_schema",
@@ -501,6 +682,24 @@
         "description": "escola.schemas.aluno_schema",
         "peekOfCode": "class AlunoRequest(BaseModel):\n    nome: str\n    cpf: str\n    rg: str",
         "detail": "escola.schemas.aluno_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TurmaResponse",
+        "kind": 6,
+        "importPath": "escola.schemas.turma_schema",
+        "description": "escola.schemas.turma_schema",
+        "peekOfCode": "class TurmaResponse(BaseModel):\n    id: int\n    serie: str\n    codigo: str\n    class Config:\n        from_attributes = True\nclass TurmaRequest(BaseModel):\n    serie: str\n    codigo: str",
+        "detail": "escola.schemas.turma_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TurmaRequest",
+        "kind": 6,
+        "importPath": "escola.schemas.turma_schema",
+        "description": "escola.schemas.turma_schema",
+        "peekOfCode": "class TurmaRequest(BaseModel):\n    serie: str\n    codigo: str",
+        "detail": "escola.schemas.turma_schema",
         "documentation": {}
     },
     {

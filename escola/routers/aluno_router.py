@@ -29,6 +29,11 @@ async def criar_aluno(aluno_request:AlunoRequest, db:Session=Depends(get_db)) ->
     db.refresh(aluno)
     return aluno
 
+@router.delete("/{id_aluno}", status_code=204)
+async def deletar_aluno(id_aluno:int, db: Session=Depends(get_db)) -> None:
+    aluno = buscar_aluno_por_id(id_aluno, db)
+    db.delete(aluno)
+    db.commit()
 
 def buscar_aluno_por_id(id:int, db:Session) -> Aluno:
     aluno = db.query(Aluno).get(id)
