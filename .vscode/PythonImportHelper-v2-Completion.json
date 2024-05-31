@@ -492,6 +492,14 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "declarative_base",
         "importPath": "sqlalchemy.ext.declarative",
         "description": "sqlalchemy.ext.declarative",
@@ -773,6 +781,24 @@
         "description": "escola.schemas.aluno_schema",
         "peekOfCode": "class AlunoRequest(BaseModel):\n    nome: str\n    cpf: str\n    rg: str",
         "detail": "escola.schemas.aluno_schema",
+        "documentation": {}
+    },
+    {
+        "label": "ProfessorResponse",
+        "kind": 6,
+        "importPath": "escola.schemas.professor_schema",
+        "description": "escola.schemas.professor_schema",
+        "peekOfCode": "class ProfessorResponse(BaseModel):\n    id: int\n    nome: str\n    cpf: str\n    rg: str\n    class Config:\n        from_attributes = True\nclass ProfessorRequest(BaseModel):\n    nome: str\n    cpf: str",
+        "detail": "escola.schemas.professor_schema",
+        "documentation": {}
+    },
+    {
+        "label": "ProfessorRequest",
+        "kind": 6,
+        "importPath": "escola.schemas.professor_schema",
+        "description": "escola.schemas.professor_schema",
+        "peekOfCode": "class ProfessorRequest(BaseModel):\n    nome: str\n    cpf: str\n    rg: str",
+        "detail": "escola.schemas.professor_schema",
         "documentation": {}
     },
     {
