@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from escola.models.aluno import Aluno
 from escola.schemas.aluno_schema import AlunoRequest, AlunoResponse
 from shared.dependencies import get_db
+from shared.exceptions import NotFound
 
 
 router = APIRouter(prefix="/escola")
@@ -32,5 +33,5 @@ async def criar_aluno(aluno_request:AlunoRequest, db:Session=Depends(get_db)) ->
 def buscar_aluno_por_id(id:int, db:Session) -> Aluno:
     aluno = db.query(Aluno).get(id)
     if aluno is None:
-        raise "Aluno não encontrado"
+        raise NotFound("Aluno(a) não encontrado(a)")
     return aluno
