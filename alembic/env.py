@@ -8,6 +8,7 @@ from alembic import context
 from shared.database import Base
 from escola.models.aluno import Aluno
 from escola.models.turma import Turma
+from escola.models.professor import Professor
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
