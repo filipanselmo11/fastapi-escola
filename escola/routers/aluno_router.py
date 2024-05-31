@@ -10,7 +10,7 @@ from shared.dependencies import get_db
 from shared.exceptions import NotFound
 
 
-router = APIRouter(prefix="/escola")
+router = APIRouter(prefix="/aluno")
 
 @router.get("/", response_model=List[AlunoResponse], status_code=200)
 async def get_alunos(db: Session=Depends(get_db)) -> List[AlunoResponse]:

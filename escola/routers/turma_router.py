@@ -7,7 +7,7 @@ from shared.exceptions import NotFound
 from shared.dependencies import get_db
 
 
-router = APIRouter(prefix="/escola")
+router = APIRouter(prefix="/turma")
 
 @router.get("/", response_model=List[TurmaResponse], status_code=200)
 async def get_turmas(db: Session=Depends(get_db)) -> List[TurmaResponse]:

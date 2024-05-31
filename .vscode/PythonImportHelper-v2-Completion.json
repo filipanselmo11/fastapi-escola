@@ -99,6 +99,14 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "op",
         "importPath": "alembic",
         "description": "alembic",
@@ -324,6 +332,30 @@
         "documentation": {}
     },
     {
+        "label": "Professor",
+        "importPath": "escola.models.professor",
+        "description": "escola.models.professor",
+        "isExtraImport": true,
+        "detail": "escola.models.professor",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -388,6 +420,14 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -428,11 +468,11 @@
         "documentation": {}
     },
     {
-        "label": "NotFound",
-        "importPath": "shared.exceptions",
-        "description": "shared.exceptions",
+        "label": "get_db",
+        "importPath": "shared.dependencies",
+        "description": "shared.dependencies",
         "isExtraImport": true,
-        "detail": "shared.exceptions",
+        "detail": "shared.dependencies",
         "documentation": {}
     },
     {
@@ -457,6 +497,38 @@
         "description": "shared.exceptions",
         "isExtraImport": true,
         "detail": "shared.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "NotFound",
+        "importPath": "shared.exceptions",
+        "description": "shared.exceptions",
+        "isExtraImport": true,
+        "detail": "shared.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "NotFound",
+        "importPath": "shared.exceptions",
+        "description": "shared.exceptions",
+        "isExtraImport": true,
+        "detail": "shared.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "ProfessorRequest",
+        "importPath": "escola.schemas.professor_schema",
+        "description": "escola.schemas.professor_schema",
+        "isExtraImport": true,
+        "detail": "escola.schemas.professor_schema",
+        "documentation": {}
+    },
+    {
+        "label": "ProfessorResponse",
+        "importPath": "escola.schemas.professor_schema",
+        "description": "escola.schemas.professor_schema",
+        "isExtraImport": true,
+        "detail": "escola.schemas.professor_schema",
         "documentation": {}
     },
     {
@@ -517,6 +589,22 @@
     },
     {
         "label": "aluno_router",
+        "importPath": "escola.routers",
+        "description": "escola.routers",
+        "isExtraImport": true,
+        "detail": "escola.routers",
+        "documentation": {}
+    },
+    {
+        "label": "professor_router",
+        "importPath": "escola.routers",
+        "description": "escola.routers",
+        "isExtraImport": true,
+        "detail": "escola.routers",
+        "documentation": {}
+    },
+    {
+        "label": "turma_router",
         "importPath": "escola.routers",
         "description": "escola.routers",
         "isExtraImport": true,
@@ -743,8 +831,26 @@
         "kind": 5,
         "importPath": "escola.routers.aluno_router",
         "description": "escola.routers.aluno_router",
-        "peekOfCode": "router = APIRouter(prefix=\"/escola\")\n@router.get(\"/\", response_model=List[AlunoResponse], status_code=200)\nasync def get_alunos(db: Session=Depends(get_db)) -> List[AlunoResponse]:\n    return db.query(Aluno).all()\n@router.get(\"/{id_aluno}\", response_model=AlunoResponse, status_code=200)\nasync def get_aluno(id_aluno:int, db:Session=Depends(get_db)) -> AlunoResponse:\n    aluno = buscar_aluno_por_id(id_aluno, db)\n    return aluno\n@router.post(\"\", response_model=AlunoResponse, status_code=201)\nasync def criar_aluno(aluno_request:AlunoRequest, db:Session=Depends(get_db)) -> AlunoResponse:",
+        "peekOfCode": "router = APIRouter(prefix=\"/aluno\")\n@router.get(\"/\", response_model=List[AlunoResponse], status_code=200)\nasync def get_alunos(db: Session=Depends(get_db)) -> List[AlunoResponse]:\n    return db.query(Aluno).all()\n@router.get(\"/{id_aluno}\", response_model=AlunoResponse, status_code=200)\nasync def get_aluno(id_aluno:int, db:Session=Depends(get_db)) -> AlunoResponse:\n    aluno = buscar_aluno_por_id(id_aluno, db)\n    return aluno\n@router.post(\"\", response_model=AlunoResponse, status_code=201)\nasync def criar_aluno(aluno_request:AlunoRequest, db:Session=Depends(get_db)) -> AlunoResponse:",
         "detail": "escola.routers.aluno_router",
+        "documentation": {}
+    },
+    {
+        "label": "buscar_professor_id",
+        "kind": 2,
+        "importPath": "escola.routers.professor_router",
+        "description": "escola.routers.professor_router",
+        "peekOfCode": "def buscar_professor_id(int:int, db:Session) -> Professor:\n    professor = db.query(Professor).get(id)\n    if professor is None:\n        raise NotFound(\"Professor(a) não encotrado(a)\")\n    return professor",
+        "detail": "escola.routers.professor_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "escola.routers.professor_router",
+        "description": "escola.routers.professor_router",
+        "peekOfCode": "router = APIRouter(prefix=\"/professor\")\n@router.get(\"/\", response_model=List[ProfessorResponse], status_code=200)\nasync def get_professores(db: Session=Depends(get_db)) -> List[ProfessorResponse]:\n    return db.query(Professor).all()\n@router.get(\"/{id_professor}\", response_model=ProfessorResponse, status_code=200)\nasync def get_professor(id_professor:int, db:Session=Depends(get_db)) -> ProfessorResponse:\n    professor = buscar_professor_id(id_professor, db)\n    return professor\n@router.post(\"\", response_model=ProfessorResponse, status_code=201)\nasync def criar_professor(professor_request:ProfessorRequest, db:Session=Depends(get_db)) -> ProfessorRequest:",
+        "detail": "escola.routers.professor_router",
         "documentation": {}
     },
     {
@@ -761,7 +867,7 @@
         "kind": 5,
         "importPath": "escola.routers.turma_router",
         "description": "escola.routers.turma_router",
-        "peekOfCode": "router = APIRouter(prefix=\"/escola\")\n@router.get(\"/\", response_model=List[TurmaResponse], status_code=200)\nasync def get_turmas(db: Session=Depends(get_db)) -> List[TurmaResponse]:\n    return db.query(Turma).all()\n@router.get(\"/{id_turma}\", response_model=TurmaResponse, status_code=200)\nasync def get_turma(id_turma:int, db:Session=Depends(get_db)) -> TurmaResponse:\n    turma = buscar_turmar_por_id(id_turma, db)\n    return turma\n@router.post(\"\", response_model=TurmaResponse, status_code=201)\nasync def criar_turma(turma_request:TurmaRequest, db:Session=Depends(get_db)) -> TurmaResponse:",
+        "peekOfCode": "router = APIRouter(prefix=\"/turma\")\n@router.get(\"/\", response_model=List[TurmaResponse], status_code=200)\nasync def get_turmas(db: Session=Depends(get_db)) -> List[TurmaResponse]:\n    return db.query(Turma).all()\n@router.get(\"/{id_turma}\", response_model=TurmaResponse, status_code=200)\nasync def get_turma(id_turma:int, db:Session=Depends(get_db)) -> TurmaResponse:\n    turma = buscar_turmar_por_id(id_turma, db)\n    return turma\n@router.post(\"\", response_model=TurmaResponse, status_code=201)\nasync def criar_turma(turma_request:TurmaRequest, db:Session=Depends(get_db)) -> TurmaResponse:",
         "detail": "escola.routers.turma_router",
         "documentation": {}
     },
@@ -878,7 +984,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI()\n@app.get(\"/\")\nasync def root():\n    return \"Olá Mundo\"\napp.include_router(aluno_router.router)\napp.add_exception_handler(NotFound, not_found_handler)",
+        "peekOfCode": "app = FastAPI()\n@app.get(\"/\")\nasync def root():\n    return \"Olá Mundo\"\napp.include_router(aluno_router.router)\napp.include_router(professor_router.router)\napp.include_router(turma_router.router)\napp.add_exception_handler(NotFound, not_found_handler)",
         "detail": "main",
         "documentation": {}
     }
