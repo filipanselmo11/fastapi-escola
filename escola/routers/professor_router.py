@@ -14,7 +14,7 @@ async def get_professores(db: Session=Depends(get_db)) -> List[ProfessorResponse
 
 @router.get("/{id_professor}", response_model=ProfessorResponse, status_code=200)
 async def get_professor(id_professor:int, db:Session=Depends(get_db)) -> ProfessorResponse:
-    professor = buscar_professor_id(id_professor, db)
+    professor = buscar_professor_por_id(id_professor, db)
     return professor
 
 @router.post("", response_model=ProfessorResponse, status_code=201)
@@ -27,12 +27,12 @@ async def criar_professor(professor_request:ProfessorRequest, db:Session=Depends
 
 @router.delete("/{id_professor}", status_code=204)
 async def deletar_professor(id_professor:int, db:Session=Depends(get_db)) -> None:
-    professor = buscar_professor_id(id_professor, db)
+    professor = buscar_professor_por_id(id_professor, db)
     db.delete(professor)
     db.commit()
 
 
-def buscar_professor_id(int:int, db:Session) -> Professor:
+def buscar_professor_por_id(int:int, db:Session) -> Professor:
     professor = db.query(Professor).get(id)
     if professor is None:
         raise NotFound("Professor(a) não encotrado(a)")

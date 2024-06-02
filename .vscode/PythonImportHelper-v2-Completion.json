@@ -836,11 +836,11 @@
         "documentation": {}
     },
     {
-        "label": "buscar_professor_id",
+        "label": "buscar_professor_por_id",
         "kind": 2,
         "importPath": "escola.routers.professor_router",
         "description": "escola.routers.professor_router",
-        "peekOfCode": "def buscar_professor_id(int:int, db:Session) -> Professor:\n    professor = db.query(Professor).get(id)\n    if professor is None:\n        raise NotFound(\"Professor(a) não encotrado(a)\")\n    return professor",
+        "peekOfCode": "def buscar_professor_por_id(int:int, db:Session) -> Professor:\n    professor = db.query(Professor).get(id)\n    if professor is None:\n        raise NotFound(\"Professor(a) não encotrado(a)\")\n    return professor",
         "detail": "escola.routers.professor_router",
         "documentation": {}
     },
@@ -849,7 +849,7 @@
         "kind": 5,
         "importPath": "escola.routers.professor_router",
         "description": "escola.routers.professor_router",
-        "peekOfCode": "router = APIRouter(prefix=\"/professor\")\n@router.get(\"/\", response_model=List[ProfessorResponse], status_code=200)\nasync def get_professores(db: Session=Depends(get_db)) -> List[ProfessorResponse]:\n    return db.query(Professor).all()\n@router.get(\"/{id_professor}\", response_model=ProfessorResponse, status_code=200)\nasync def get_professor(id_professor:int, db:Session=Depends(get_db)) -> ProfessorResponse:\n    professor = buscar_professor_id(id_professor, db)\n    return professor\n@router.post(\"\", response_model=ProfessorResponse, status_code=201)\nasync def criar_professor(professor_request:ProfessorRequest, db:Session=Depends(get_db)) -> ProfessorRequest:",
+        "peekOfCode": "router = APIRouter(prefix=\"/professor\")\n@router.get(\"/\", response_model=List[ProfessorResponse], status_code=200)\nasync def get_professores(db: Session=Depends(get_db)) -> List[ProfessorResponse]:\n    return db.query(Professor).all()\n@router.get(\"/{id_professor}\", response_model=ProfessorResponse, status_code=200)\nasync def get_professor(id_professor:int, db:Session=Depends(get_db)) -> ProfessorResponse:\n    professor = buscar_professor_por_id(id_professor, db)\n    return professor\n@router.post(\"\", response_model=ProfessorResponse, status_code=201)\nasync def criar_professor(professor_request:ProfessorRequest, db:Session=Depends(get_db)) -> ProfessorRequest:",
         "detail": "escola.routers.professor_router",
         "documentation": {}
     },
